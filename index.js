@@ -8,6 +8,7 @@ var drawer = [
     { name: 'ten', value: 1000, quantity: 1 }
 ];
 var coins = ["penny", "nickel", "dime", "quarter"];
+var notes = ["one", "five", "ten", "twenty", "hundred"];
 function removeItem(name, drawer) {
     for (var i = 0; i < drawer.length; i++) {
         var obj = drawer[i];
@@ -40,3 +41,15 @@ function countCoins(drawer) {
     return total;
 }
 console.log(countCoins(drawer));
+function countNotes(drawer) {
+    var total = 0;
+    drawer.forEach(function (item) {
+        console.log("Total: ".concat(total));
+        console.log("".concat(item.name, ", ").concat(item.quantity));
+        if (notes.indexOf(item.name) > -1) {
+            total += item.quantity;
+        }
+    });
+    return total;
+}
+console.log(countNotes(drawer));
