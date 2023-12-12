@@ -7,7 +7,7 @@ let drawer: any= [
     { name: 'five', value: 500, quantity: 1 },
     { name: 'ten', value: 1000, quantity: 1 }
 ];
-
+let coins: string[] = ["penny", "nickel", "dime", "quarter"] ;
 function removeItem(name: string, drawer){
     for(let i = 0; i < drawer.length; i++){
         let obj = drawer[i];
@@ -31,3 +31,17 @@ function addItem(name: string, drawer){
 }
 
 console.log(addItem("nickel", drawer))
+
+function countCoins(drawer): number{
+    let total : number = 0;
+    drawer.forEach(item =>{
+        console.log(`Total: ${total}`)
+        console.log(`${item.name}, ${item.quantity}`)
+        if(coins.indexOf(item.name) > -1){
+            total += item.quantity;
+        }
+    })
+    return total;
+}
+
+console.log(countCoins(drawer));
