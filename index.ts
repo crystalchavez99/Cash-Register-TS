@@ -1,4 +1,4 @@
-let drawer: any= [
+const drawer: any = [
     { name: 'penny', value: 1, quantity: 2 },
     { name: 'nickel', value: 5, quantity: 0 },
     { name: 'dime', value: 10, quantity: 0 },
@@ -48,8 +48,6 @@ console.log(countCoins(drawer));
 function countNotes(drawer): number{
     let total : number = 0;
     drawer.forEach(item =>{
-        console.log(`Total: ${total}`)
-        console.log(`${item.name}, ${item.quantity}`)
         if(notes.indexOf(item.name) > -1){
             total += item.quantity;
         }
@@ -58,3 +56,30 @@ function countNotes(drawer): number{
 }
 
 console.log(countNotes(drawer))
+
+function sumDrawer(drawer){
+    let total = 0;
+    drawer.forEach(item =>{
+        total += (item.quantity * item.value)
+    })
+    return  (total/100).toFixed(2);
+}
+console.log(sumDrawer(drawer));
+
+function canMakeAmount(target: number, drawer): boolean{
+    drawer = drawer.reverse();
+    console.log(drawer.reverse())
+    drawer.forEach(item =>{
+        while(item.quantity > 0 && target >= 0 && target >= item.value){
+            target -= item.value;
+            item.quantity -= 1;
+        }
+    })
+    if(target === 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+console.log( canMakeAmount(613, drawer))
+console.log( canMakeAmount(1651, drawer))
