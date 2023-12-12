@@ -17,3 +17,13 @@ function removeItem(name, drawer) {
     return drawer;
 }
 console.log(removeItem("penny", drawer));
+function addItem(name, drawer) {
+    for (var i = 0; i < drawer.length; i++) {
+        var obj = drawer[i];
+        if (obj["name"] == name) {
+            obj["quantity"] += 1;
+        }
+    }
+    return drawer;
+}
+console.log(addItem("nickel", drawer));

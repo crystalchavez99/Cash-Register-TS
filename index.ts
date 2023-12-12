@@ -19,3 +19,15 @@ function removeItem(name: string, drawer){
 }
 
 console.log(removeItem("penny", drawer));
+
+function addItem(name: string, drawer){
+    for(let i = 0; i < drawer.length; i++){
+        let obj = drawer[i];
+        if(obj["name"] == name){
+            obj["quantity"] += 1;
+        }
+    }
+    return drawer;
+}
+
+console.log(addItem("nickel", drawer))
